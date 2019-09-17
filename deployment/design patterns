@@ -1,0 +1,23 @@
+#Use case for ambassador pattern
+
+1. Create a new image for watchlist-service rishiwhite11/watchlist-service:5.0 which will point to mongo DB at port 6000
+2. Change the service.yaml so that it can consume traffic at port 5000
+3. Use HA proxy as a base
+4. Create configmap ha-config(service) using the below specs
+Reference for HA proxy(haproxy.cfg)
+image: haproxy:1.7
+mountPath: /usr/local/etc/haproxy
+----------------------
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+listen http-in
+    bind *:5000
+    server watchlist-service 127.0.0.1:4000 maxconn 32

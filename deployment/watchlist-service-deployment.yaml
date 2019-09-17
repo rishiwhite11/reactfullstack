@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: watchlist-service
+  labels:
+    environment: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: service
+      app: secure-app
+  template:
+    metadata:
+      labels:
+        component: service
+        app: secure-app
+    spec:
+      containers:
+        - name: watchlist-service
+          image: rishiwhite11/watchlist-service:4.1
+          args: ["npm", "run", "start"]
+          ports:
+            - containerPort: 4000
+          livenessProbe:
+            httpGet:
+              path: /readinessProbe/health
+              port: 4000
+          envFrom:
+            - configMapRef:
+                name: watchlist-configmap
+            - secretRef:
+                name: watchlist-secret

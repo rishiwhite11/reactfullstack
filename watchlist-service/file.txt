@@ -1,0 +1,15 @@
+(node:20178) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:20178) UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [mongo:6000] on first connect [MongoNetworkError: getaddrinfo ENOTFOUND mongo mongo:6000]
+    at Pool.<anonymous> (/Users/mayukhbasu/Downloads/k8s-ckad/watchlist-service/node_modules/mongodb-core/lib/topologies/server.js:431:11)
+    at Pool.emit (events.js:198:13)
+    at connect (/Users/mayukhbasu/Downloads/k8s-ckad/watchlist-service/node_modules/mongodb-core/lib/connection/pool.js:557:14)
+    at makeConnection (/Users/mayukhbasu/Downloads/k8s-ckad/watchlist-service/node_modules/mongodb-core/lib/connection/connect.js:39:11)
+    at callback (/Users/mayukhbasu/Downloads/k8s-ckad/watchlist-service/node_modules/mongodb-core/lib/connection/connect.js:261:5)
+    at Socket.err (/Users/mayukhbasu/Downloads/k8s-ckad/watchlist-service/node_modules/mongodb-core/lib/connection/connect.js:286:7)
+    at Object.onceWrapper (events.js:286:20)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+(node:20178) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:20178) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.

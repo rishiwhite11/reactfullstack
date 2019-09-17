@@ -1,0 +1,27 @@
+Do the following steps everyday.
+1. Create a Pod and service having the image rishiwhite11/watchlist-ui:2.2 in 
+2. Create a Pod and Service having the image rishiwhite11/watchlist-service:4.1 
+3. Create a liveness probe in the pod watchlist UI running the command echo hello world.
+4. Create a readiness probe in the pod watchlist-service at the endpoint /readinessProbe/health
+5. Run the commands during the runtime npm run start in the same pod.
+6. Create a configMap watchlist-config for Pod watchlist-service with the following details
+- IEX_API: https://sandbox.iexapis.com
+- callback: /api/auth/facebook/callback
+7. Create a secret watchlist-secret for Pod watchlist-service with the following details
+- clientID: 2343367112542380
+- clientSecret: 36b0ec45faa851cf1a8ea174646cbfe8
+- token: Tsk_c6e69ff9fe364d209ad3c102508090f2
+7.1: create a busybox pod and echo the env variables from secret and configmap
+7.2: volume mount all the secrets and configmap inside the watchlist-service pod
+8. create a pod and service for mongodb, create volume mount at /data/db
+9. Create a PV mongo-pv for mongodb in database namespace.
+10. Create a PVC mongo-pvc for the same mongodb pod
+11. Check the application is running properly.
+12. Create watchlist-ui and watchlist-service deployment and rs and services, and perform rolling update for different version for the UI.
+13. Run the watchlist-service Pod as User 1000
+14. Create network policy for watchlist application, make sure to use label app:secure-app. Without the UI should not be able to talk to backend.
+15. Make sure all the Pods take 100m CPU and 100Mi memory
+16. Autoscale the deployment, pods between 5 and 10, targetting CPU utilization at 80%
+17. Pause the rollout of the deployment
+18. In watchlist-service, run as UID 1000, filesystemgroup 2000, groupID 3000
+19. Do the same in busybox

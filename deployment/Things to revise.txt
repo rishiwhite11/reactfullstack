@@ -1,0 +1,9 @@
+1. ResourceQuota
+2. Get logs from previous instance
+3. Setting environment variable shortcuts
+4. How to run sh command while doing a dry run in pod.
+5. kubectl copy command
+6. How to remove labels
+7. Annotations should be revised multiple times
+8. NodeSelector should be looked from documentatation
+9. Difference between port and target port
